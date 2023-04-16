@@ -1,0 +1,9 @@
+{
+    "git.fetchOnPull": true,
+    "material-icon-theme.folders.associations": {
+        "entities": "Database",
+        "migrations": "Hook",
+        "color": "",
+        "icon": ""
+    }
+}

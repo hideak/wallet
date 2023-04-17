@@ -1,5 +1,5 @@
 <template>
     <a class="navbar-brand" href="#">
-        <BaseIconLabel icon="vector-pen" label="wallet.hideak.com" />
+        <small>wallet.hideak.com</small>
     </a>
 </template>

@@ -1,5 +1,3 @@
 <template>
-    <div>
-        <BaseHeader />
-    </div>
+    <PageLogin />
 </template>

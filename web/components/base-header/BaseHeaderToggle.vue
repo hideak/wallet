@@ -1,0 +1,5 @@
+<template>
+    <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</template>

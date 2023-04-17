@@ -3,6 +3,6 @@
         <PageLoginLogo />
         <PageLoginIntro />
         <PageLoginUserSelector />
-        <PageLoginManageUsers />
+        <PageLoginEditUsers />
     </BasePage>
 </template>

@@ -1,10 +1,3 @@
 <template>
-  <div>
-    Hello World!
-  </div>
+  <NuxtPage />
 </template>
-
-<style lang="scss">
-@import 'bootstrap';
-@import 'sass/global';
-</style>

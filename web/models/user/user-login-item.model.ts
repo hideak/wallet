@@ -11,6 +11,10 @@ export class UserLoginItem {
         this.email = userListItem.email;
     }
 
+    static fromUsers(users: User[]): UserLoginItem[] {
+        return users.map(user => UserLoginItem.fromUser(user));
+    }
+
     static fromUser(user: User): UserLoginItem {
         return new UserLoginItem({
             id: user.id,

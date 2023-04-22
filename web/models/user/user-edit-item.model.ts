@@ -9,6 +9,10 @@ export class UserEditItem {
         this.name = userListItem.name;
     }
 
+    static fromUsers(users: User[]): UserEditItem[] {
+        return users.map(user => UserEditItem.fromUser(user));
+    }
+
     static fromUser(user: User): UserEditItem {
         return new UserEditItem({
             id: user.id,

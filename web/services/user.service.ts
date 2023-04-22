@@ -5,12 +5,12 @@ import { userRepository } from "~/repositories/user.repository"
 export class UserService {
     async getAllUserLoginItems(): Promise<UserLoginItem[]> {
         const users = await userRepository.getAll();
-        return users.map(user => UserLoginItem.fromUser(user));
+        return UserLoginItem.fromUsers(users);
     }
 
     async getAllUserEditItems(): Promise<UserEditItem[]> {
         const users = await userRepository.getAll();
-        return users.map(user => UserEditItem.fromUser(user));
+        return UserEditItem.fromUsers(users);
     }
 }
 

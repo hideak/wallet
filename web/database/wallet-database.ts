@@ -8,7 +8,7 @@ import { Income } from '~/entities/income/income.entity';
 import { Transfer } from '~/entities/transfer/transfer.entity';
 import { TransactionGroup } from '~/entities/transaction-group/transaction-group.entity';
 
-export default class WalletDatabase extends Dexie {
+export class WalletDatabase extends Dexie {
     users!: Dexie.Table<User, number>;
     accounts!: Dexie.Table<Account, number>;
     categories!: Dexie.Table<Category, number>;
@@ -41,3 +41,5 @@ export default class WalletDatabase extends Dexie {
         });
     }
 }
+
+export const walletDatabase = new WalletDatabase();

@@ -4,6 +4,7 @@
         "entities": "Database",
         "migrations": "Hook",
         "composables": "Functions",
+        "repositories": "Template",
         "color": "",
         "icon": "",
         "home": ""

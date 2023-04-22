@@ -1,9 +1,12 @@
 <script setup lang="ts">
-defineProps({
-    icon: { type: String }
-});
+interface Props {
+    icon: string;
+}
+
+const props = defineProps<Props>();
+const iconNameClass = useBsIconName(props.icon);
 </script>
 
 <template>
-    <i :class="`bi bi-${icon}`"></i>
+    <i :class="iconNameClass"></i>
 </template>

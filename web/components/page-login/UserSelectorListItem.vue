@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { UserLoginItem } from '~/models/user/user-login-item.model';
 
-defineProps({
-    item: { type: Object as PropType<UserLoginItem>, required: true }
-});
+interface Props {
+    item: UserLoginItem;
+}
+
+defineProps<Props>();
 </script>
 
 <template>

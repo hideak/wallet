@@ -1,15 +1,16 @@
 <script setup lang="ts">
-const props = defineProps({
-  icon: { type: String },
-  label: { type: String },
-});
+interface Props {
+  icon?: string;
+  label?: string;
+}
 
-const marginClass = useBsIconMargin(props.label);
+const props = defineProps<Props>();
+const iconMarginClass = useBsIconMargin(props.label);
 </script>
 
 <template>
   <span>
-    <BaseIcon v-if="icon" :icon="icon" :class="marginClass" />
-    <span>{{ label }}</span>
+    <BaseIcon v-if="icon" :icon="icon" :class="iconMarginClass" />
+    <span v-if="label">{{ label }}</span>
   </span>
 </template>

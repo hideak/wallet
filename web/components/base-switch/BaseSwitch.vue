@@ -1,8 +1,10 @@
 <script setup lang="ts">
-defineProps({
-    modelValue: { type: Boolean },
-    label: { type: String }
-});
+interface Props {
+    modelValue: boolean;
+    label: string;
+}
+
+defineProps<Props>();
 
 const emit = defineEmits(['update:modelValue']);
 </script>

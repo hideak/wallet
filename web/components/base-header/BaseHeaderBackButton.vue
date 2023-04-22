@@ -3,5 +3,5 @@ const router = useRouter();
 </script>
 
 <template>
-    <BaseButton class="text-white" icon="arrow-left" @click="router.back()" />
+    <BaseButton class="text-white" upperIcon="arrow-left" @click="router.back()" />
 </template>

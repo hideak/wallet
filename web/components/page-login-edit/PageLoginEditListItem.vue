@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { UserEditItem } from '~/models/user/user-edit-item.model';
 
-defineProps({
-    item: { type: Object as PropType<UserEditItem>, required: true }
-});
+interface Props {
+    item: UserEditItem;
+}
 
+defineProps<Props>();
 const router = useRouter();
 </script>
 

@@ -3,7 +3,7 @@ const router = useRouter();
 </script>
 
 <template>
-    <BaseInput type="text" icon="person-circle" label="Nome" />
+    <BaseInput type="text" upperIcon="person-circle" upperLabel="Nome" />
     <hr>
     <BaseButton class="mb-2 w-100" type="button" color="primary" label="Salvar alterações" />
     <BaseButton class="w-100" type="button" color="dark" label="Cancelar" @click="router.back()" />

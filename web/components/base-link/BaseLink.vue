@@ -1,9 +1,11 @@
 <script setup lang="ts">
-defineProps({
-  icon: { type: String },
-  label: { type: String },
-  path: { type: String }
-});
+interface Props {
+  icon?: string;
+  label?: string;
+  path: string;
+}
+
+defineProps<Props>();
 </script>
 
 <template>

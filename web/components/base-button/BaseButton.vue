@@ -1,13 +1,14 @@
 <script setup lang="ts">
-const props = defineProps({
-  icon: { type: String },
-  label: { type: String },
-  color: { type: String }
-});
+interface Props {
+  icon?: string;
+  label?: string;
+  color?: string;
+}
+
+const props = defineProps<Props>();
+const buttonColorClass = useBsButtonColor(props.color);
 
 const emit = defineEmits(['click']);
-
-const buttonColorClass = useBsButtonColor(props.color);
 </script>
 
 <template>

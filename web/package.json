@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/bootstrap": "^5.2.6",
     "nuxt": "^3.4.1",
     "sass": "^1.62.0",

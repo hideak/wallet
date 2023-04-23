@@ -1,3 +1,3 @@
 <template>
-    <BaseLink to="/login/edit" label="Gerenciar Usuários" />
+    <BaseLink path="/login/edit" label="Gerenciar Usuários" />
 </template>

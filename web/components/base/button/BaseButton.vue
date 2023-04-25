@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface Props {
-  icon?: string;
-  label?: string;
-  color?: string;
+    icon?: string;
+    label?: string;
+    color?: string;
 }
 
 const props = defineProps<Props>();
@@ -12,7 +12,7 @@ const emit = defineEmits(['click']);
 </script>
 
 <template>
-  <button class="btn" :class="buttonColorClass" @click="emit('click')">
-    <BaseIconLabel :icon="icon" :label="label" />
-  </button>
+    <button class="btn" :class="buttonColorClass" @click="emit('click')">
+        <BaseIconLabel :icon="icon" :label="label" />
+    </button>
 </template>

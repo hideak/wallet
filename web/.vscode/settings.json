@@ -1,4 +1,5 @@
 {
+    "editor.tabSize": 4,
     "git.fetchOnPull": true,
     "material-icon-theme.folders.associations": {
         "entities": "Database",

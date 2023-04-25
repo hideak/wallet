@@ -1,3 +1,5 @@
+import { UserNewForm } from "~/models/user/user-new-form.model";
+
 export class User {
     id?: number;
     name: string;
@@ -9,5 +11,13 @@ export class User {
         this.name = user.name;
         this.email = user.email;
         this.password = user.password;
+    }
+
+    static fromUserNewForm(userNewForm: UserNewForm, hashedPassword: string): User {
+        return new User({
+            name: userNewForm.name,
+            email: userNewForm.email,
+            password: hashedPassword
+        });
     }
 }

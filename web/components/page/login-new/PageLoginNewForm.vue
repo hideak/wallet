@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import BaseForm from '~/components/base/form/BaseForm.vue';
 import { User } from '~/entities/user/user.entity';
-import { UserNewForm } from '~/models/user/user-new-form.model';
+import { UserNewData } from '~/models/user/user-new-data.model';
 import { passwordService } from '~/services/password.service';
 import { userService } from '~/services/user.service';
 
 const router = useRouter();
 const userNewForm = ref<InstanceType<typeof BaseForm> | null>(null);
-const userNewFormData = ref(UserNewForm.fromBlank());
+const userNewData = ref(UserNewData.empty());
 
 const createUser = async () => {
     if (!userNewForm.value?.validate()) { return; };
@@ -18,12 +18,12 @@ const createUser = async () => {
 };
 
 const getUserToCreate = async (): Promise<User> => {
-    const password = userNewFormData.value.password;
-    const hashedPasswordOrNull = userNewFormData.value.usePassword
+    const password = userNewData.value.password;
+    const hashedPasswordOrNull = userNewData.value.usePassword
         ? await passwordService.hash(password)
         : null;
 
-    return User.fromUserNewForm(userNewFormData.value, hashedPasswordOrNull);
+    return User.fromUserNewData(userNewData.value, hashedPasswordOrNull);
 };
 
 const validatePassword = (validationData: any): string => {
@@ -44,16 +44,16 @@ const validatePasswordConfirmation = (validationData: any): string => {
 <template>
     <BaseForm ref="userNewForm">
         <BaseInput class="mb-3" type="text" upperIcon="person-circle" upperLabel="Nome" required
-            invalidFeedback="Insira um nome válido" v-model="userNewFormData.name" />
+            invalidFeedback="Insira um nome válido" v-model="userNewData.name" />
         <BaseInput class="mb-3" type="email" upperIcon="envelope" upperLabel="E-mail" required
-            invalidFeedback="Insira um e-mail válido" v-model="userNewFormData.email" />
-        <BaseSwitch type="text" label="Proteger usuário por senha?" v-model="userNewFormData.usePassword" />
-        <BaseInput v-show="userNewFormData.usePassword" class="my-3" type="password" upperIcon="key" upperLabel="Senha"
-            v-model="userNewFormData.password" :validationFn="validatePassword"
-            :validationData="{ usePassword: userNewFormData.usePassword, password: userNewFormData.password }" />
-        <BaseInput v-show="userNewFormData.usePassword" type="password" upperIcon="key" upperLabel="Confirmar senha"
-            v-model="userNewFormData.passwordConfirmation" :validationFn="validatePasswordConfirmation" :validationData="{
-                    usePassword: userNewFormData.usePassword, password: userNewFormData.password, passwordConfirmation: userNewFormData.passwordConfirmation
+            invalidFeedback="Insira um e-mail válido" v-model="userNewData.email" />
+        <BaseSwitch type="text" label="Proteger usuário por senha?" v-model="userNewData.usePassword" />
+        <BaseInput v-show="userNewData.usePassword" class="my-3" type="password" upperIcon="key" upperLabel="Senha"
+            v-model="userNewData.password" :validationFn="validatePassword"
+            :validationData="{ usePassword: userNewData.usePassword, password: userNewData.password }" />
+        <BaseInput v-show="userNewData.usePassword" type="password" upperIcon="key" upperLabel="Confirmar senha"
+            v-model="userNewData.passwordConfirmation" :validationFn="validatePasswordConfirmation" :validationData="{
+                    usePassword: userNewData.usePassword, password: userNewData.password, passwordConfirmation: userNewData.passwordConfirmation
                 }" />
         <hr>
         <BaseButton class="mb-2 w-100" type="button" color="primary" label="Criar usuário" @click="createUser()" />

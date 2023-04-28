@@ -1,4 +1,4 @@
-import { UserNewForm } from "~/models/user/user-new-form.model";
+import { UserNewData } from "~/models/user/user-new-data.model";
 
 export class User {
     id?: number;
@@ -13,10 +13,10 @@ export class User {
         this.password = user.password;
     }
 
-    static fromUserNewForm(userNewForm: UserNewForm, hashedPassword: string | null): User {
+    static fromUserNewData(userNewData: UserNewData, hashedPassword: string | null): User {
         return new User({
-            name: userNewForm.name,
-            email: userNewForm.email,
+            name: userNewData.name,
+            email: userNewData.email,
             password: hashedPassword
         });
     }

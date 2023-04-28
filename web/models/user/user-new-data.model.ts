@@ -1,11 +1,11 @@
-export class UserNewForm {
+export class UserNewData {
     name: string;
     email: string;
     usePassword: boolean;
     password: string;
     passwordConfirmation: string;
 
-    private constructor(userNewForm: UserNewForm) {
+    private constructor(userNewForm: UserNewData) {
         this.name = userNewForm.name;
         this.email = userNewForm.email;
         this.usePassword = userNewForm.usePassword;
@@ -13,8 +13,8 @@ export class UserNewForm {
         this.passwordConfirmation = userNewForm.passwordConfirmation;
     }
 
-    static fromBlank(): UserNewForm {
-        return new UserNewForm({
+    static empty(): UserNewData {
+        return new UserNewData({
             name: '',
             email: '',
             usePassword: false,

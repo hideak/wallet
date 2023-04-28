@@ -2,5 +2,5 @@
     <BaseView>
         <PageLoginEditUserTitle />
         <PageLoginEditUserForm />
-        </BasePage>
+    </BaseView>
 </template>

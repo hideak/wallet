@@ -2,5 +2,5 @@
     <BaseView>
         <PageLoginEditUserPasswordDisableTitle />
         <PageLoginEditUserPasswordDisableForm />
-        </BasePage>
+    </BaseView>
 </template>

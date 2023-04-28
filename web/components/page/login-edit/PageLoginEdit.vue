@@ -3,5 +3,5 @@
         <PageLoginEditTitle />
         <PageLoginEditList />
         <PageLoginEditFooter />
-        </BasePage>
+    </BaseView>
 </template>

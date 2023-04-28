@@ -2,5 +2,5 @@
     <BaseView>
         <PageLoginNewTitle />
         <PageLoginNewForm />
-        </BasePage>
+    </BaseView>
 </template>

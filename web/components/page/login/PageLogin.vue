@@ -1,8 +1,8 @@
 <template>
-    <BasePage class="p-3">
+    <BaseView>
         <PageLoginLogo />
         <PageLoginIntro />
         <PageLoginUserSelector />
         <PageLoginEditUsers />
-    </BasePage>
+        </BasePage>
 </template>

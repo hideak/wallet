@@ -1,7 +1,7 @@
 <template>
-    <BasePage class="p-3">
+    <BaseView>
         <PageLoginEditTitle />
         <PageLoginEditList />
         <PageLoginEditFooter />
-    </BasePage>
+        </BasePage>
 </template>

@@ -1,6 +1,6 @@
 <template>
-    <BasePage class="p-3">
+    <BaseView>
         <PageLoginNewTitle />
         <PageLoginNewForm />
-    </BasePage>
+        </BasePage>
 </template>

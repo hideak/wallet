@@ -13,7 +13,7 @@ export class User {
         this.password = user.password;
     }
 
-    static fromUserNewForm(userNewForm: UserNewForm, hashedPassword: string): User {
+    static fromUserNewForm(userNewForm: UserNewForm, hashedPassword: string | null): User {
         return new User({
             name: userNewForm.name,
             email: userNewForm.email,

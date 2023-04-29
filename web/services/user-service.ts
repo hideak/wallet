@@ -1,4 +1,5 @@
 import { User } from "~/entities/user/user";
+import { UserEditPasswordData } from "~/models/user/data/user-edit-password-data";
 import { UserEditPasswordEnableData } from "~/models/user/data/user-edit-password-enable-data";
 import { UserNewData } from "~/models/user/data/user-new-data";
 import { UserEditItem } from "~/models/user/item/user-edit-item";
@@ -43,7 +44,18 @@ export class UserService {
         return await passwordService.compare(password, hash);
     }
 
-    async disableUserPassword(id: number) {
+    async editUserPassword(id: number, userEditPasswordData: UserEditPasswordData): Promise<void> {
+        const user = await userRepository.get(id);
+        if (!user) { throw new Error(`User with id ${id} not found`); }
+
+        const password = userEditPasswordData.password;
+        const hashedPassword = await passwordService.hash(password);
+
+        user.password = hashedPassword;
+        await userRepository.upsert(user);
+    }
+
+    async disableUserPassword(id: number): Promise<void> {
         const user = await userRepository.get(id);
         if (!user) { throw new Error(`User with id ${id} not found`); }
 
@@ -52,11 +64,11 @@ export class UserService {
     }
 
     async enableUserPassword(id: number, userEditPasswordEnableData: UserEditPasswordEnableData): Promise<void> {
-        const password = userEditPasswordEnableData.password;
-        const hashedPassword = await passwordService.hash(password);
-
         const user = await userRepository.get(id);
         if (!user) { throw new Error(`User with id ${id} not found`); }
+
+        const password = userEditPasswordEnableData.password;
+        const hashedPassword = await passwordService.hash(password);
 
         user.password = hashedPassword;
         await userRepository.upsert(user);

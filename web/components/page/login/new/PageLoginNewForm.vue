@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import BaseForm from '~/components/base/form/BaseForm.vue';
-import { User } from '~/entities/user/user';
 import { UserNewData } from '~/models/user/data/user-new-data';
-import { passwordService } from '~/services/password-service';
 import { userService } from '~/services/user-service';
 
 const router = useRouter();
@@ -12,18 +10,8 @@ const userNewData = ref(UserNewData.empty());
 const createUser = async () => {
     if (!userNewForm.value?.validate()) { return; };
 
-    const user = await getUserToCreate();
-    await userService.createUser(user);
+    await userService.createUser(userNewData.value);
     router.back();
-};
-
-const getUserToCreate = async (): Promise<User> => {
-    const password = userNewData.value.password;
-    const hashedPasswordOrNull = userNewData.value.usePassword
-        ? await passwordService.hash(password)
-        : null;
-
-    return User.fromUserNewData(userNewData.value, hashedPasswordOrNull);
 };
 </script>
 

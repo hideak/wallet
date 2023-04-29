@@ -1,8 +1,9 @@
 import { User } from "~/entities/user/user";
-import { UserEditItem } from "~/models/user/item/user-edit-item";
 import { UserEditPasswordEnableData } from "~/models/user/data/user-edit-password-enable-data";
+import { UserNewData } from "~/models/user/data/user-new-data";
+import { UserEditItem } from "~/models/user/item/user-edit-item";
 import { UserLoginItem } from "~/models/user/item/user-login-item";
-import { userRepository } from "~/repositories/user-repository"
+import { userRepository } from "~/repositories/user-repository";
 import { passwordService } from "./password-service";
 
 export class UserService {
@@ -23,8 +24,14 @@ export class UserService {
         return UserEditItem.fromUser(user);
     }
 
-    async createUser(user: User): Promise<number> {
-        return await userRepository.upsert(user);
+    async createUser(userNewData: UserNewData): Promise<void> {
+        const password = userNewData.password;
+        const hashedPasswordOrNull = userNewData.usePassword
+            ? await passwordService.hash(password)
+            : null;
+
+        const user = User.fromUserNewData(userNewData, hashedPasswordOrNull);
+        await userRepository.upsert(user);
     }
 
     async enableUserPassword(id: number, userEditPasswordEnableData: UserEditPasswordEnableData): Promise<void> {

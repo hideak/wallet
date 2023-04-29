@@ -1,0 +1,3 @@
+<template>
+    <PageLoginEditUserPasswordEnable />
+</template>

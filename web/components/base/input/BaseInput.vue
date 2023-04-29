@@ -34,14 +34,17 @@ const handleInput = (event: Event): void => {
     emit('update:modelValue', value);
 };
 
-watch(() => props.validationData, (newValidationData: any): void => {
+const validate = (newValidationData: any): void => {
     if (!props.validationFn) { return; }
     const inputElement = inputRef.value;
     const validationResult = props.validationFn(newValidationData);
 
     invalidFeedback.value = validationResult;
     inputElement?.setCustomValidity(validationResult);
-});
+}
+
+onMounted(() => validate(props.validationData));
+watch(() => props.validationData, validate);
 </script>
 
 <template>

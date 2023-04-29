@@ -25,20 +25,6 @@ const getUserToCreate = async (): Promise<User> => {
 
     return User.fromUserNewData(userNewData.value, hashedPasswordOrNull);
 };
-
-const validatePassword = (validationData: any): string => {
-    if (!validationData.usePassword) { return ''; }
-    if (validationData.password.length >= 6) { return ''; }
-
-    return 'A senha deve possuir mais que 6 caracteres';
-}
-
-const validatePasswordConfirmation = (validationData: any): string => {
-    if (!validationData.usePassword) { return ''; }
-    if (validationData.password === validationData.passwordConfirmation) { return ''; }
-
-    return 'As senhas devem ser iguais';
-}
 </script>
 
 <template>

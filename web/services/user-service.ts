@@ -60,6 +60,15 @@ export class UserService {
         await userRepository.upsert(user);
     }
 
+    async editUserEmail(id: number, userEditEmailData: UserEditEmailData): Promise<void> {
+        const user = await userRepository.get(id);
+        if (!user) { throw new Error(`User with id ${id} not found`); }
+        if (!userEditEmailData.email) { throw new Error(`The provided user e-mail is not valid`); }
+
+        user.email = userEditEmailData.email;
+        await userRepository.upsert(user);
+    }
+
     async validatePassword(id: number, password: string): Promise<boolean> {
         const user = await userRepository.get(id);
         if (!user) { throw new Error(`User with id ${id} not found`); }

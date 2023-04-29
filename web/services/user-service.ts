@@ -1,5 +1,4 @@
 import { User } from "~/entities/user/user";
-import { UserEditEmailData } from "~/models/user/data/user-edit-email-data";
 import { UserEditNameData } from "~/models/user/data/user-edit-name-data";
 import { UserEditPasswordData } from "~/models/user/data/user-edit-password-data";
 import { UserEditPasswordEnableData } from "~/models/user/data/user-edit-password-enable-data";
@@ -34,13 +33,6 @@ export class UserService {
         return UserEditNameData.fromUser(user);
     }
 
-    async getUserEditEmailData(id: number): Promise<UserEditEmailData> {
-        const user = await userRepository.get(id);
-        if (!user) { throw new Error(`User with id ${id} not found`); }
-
-        return UserEditEmailData.fromUser(user);
-    }
-
     async createUser(userNewData: UserNewData): Promise<void> {
         const password = userNewData.password;
         const hashedPasswordOrNull = userNewData.usePassword
@@ -57,15 +49,6 @@ export class UserService {
         if (!userEditNameData.name) { throw new Error(`The provided user name is not valid`); }
 
         user.name = userEditNameData.name;
-        await userRepository.upsert(user);
-    }
-
-    async editUserEmail(id: number, userEditEmailData: UserEditEmailData): Promise<void> {
-        const user = await userRepository.get(id);
-        if (!user) { throw new Error(`User with id ${id} not found`); }
-        if (!userEditEmailData.email) { throw new Error(`The provided user email is not valid`); }
-
-        user.email = userEditEmailData.email;
         await userRepository.upsert(user);
     }
 

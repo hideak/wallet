@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BaseForm from '~/components/base/form/BaseForm.vue';
-import { UserEditPasswordEnableData } from '~/models/user/data/user-edit-password-enable-data.model';
-import { userService } from '~/services/user.service';
+import { UserEditPasswordEnableData } from '~/models/user/data/user-edit-password-enable-data';
+import { userService } from '~/services/user-service';
 
 const route = useRoute();
 const router = useRouter();

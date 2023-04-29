@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { UserEditItem } from '~/models/user/item/user-edit-item.model';
-import { userService } from '~/services/user.service';
+import { UserEditItem } from '~/models/user/item/user-edit-item';
+import { userService } from '~/services/user-service';
 
 const route = useRoute();
 const userEditItem = ref<UserEditItem>();

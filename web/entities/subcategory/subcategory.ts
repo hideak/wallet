@@ -1,5 +1,5 @@
-import { Color } from "../color/color.enum";
-import { Icon } from "../icon/icon.enum";
+import { Color } from "../color/color";
+import { Icon } from "../icon/icon";
 
 export class Subcategory {
     id?: number;

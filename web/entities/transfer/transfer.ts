@@ -1,5 +1,5 @@
-import { TransactionType } from "../transaction/transaction-type.enum";
-import { Transaction } from "../transaction/transaction.entity";
+import { TransactionType } from "../transaction/transaction-type";
+import { Transaction } from "../transaction/transaction";
 
 export class Transfer extends Transaction {
     type: TransactionType

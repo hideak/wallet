@@ -1,4 +1,4 @@
-import { AccountType } from "./account-type.enum";
+import { AccountType } from "./account-type";
 
 export class Account {
     id?: number;

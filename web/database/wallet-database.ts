@@ -1,12 +1,12 @@
 import Dexie from 'dexie';
-import { User } from '~/entities/user/user.entity';
-import { Account } from '~/entities/account/account.entity';
-import { Category } from '~/entities/category/category.entity';
-import { Subcategory } from '~/entities/subcategory/subcategory.entity';
-import { Expense } from '~/entities/expense/expense.entity';
-import { Income } from '~/entities/income/income.entity';
-import { Transfer } from '~/entities/transfer/transfer.entity';
-import { TransactionGroup } from '~/entities/transaction-group/transaction-group.entity';
+import { User } from '~/entities/user/user';
+import { Account } from '~/entities/account/account';
+import { Category } from '~/entities/category/category';
+import { Subcategory } from '~/entities/subcategory/subcategory';
+import { Expense } from '~/entities/expense/expense';
+import { Income } from '~/entities/income/income';
+import { Transfer } from '~/entities/transfer/transfer';
+import { TransactionGroup } from '~/entities/transaction-group/transaction-group';
 
 export class WalletDatabase extends Dexie {
     users!: Dexie.Table<User, number>;

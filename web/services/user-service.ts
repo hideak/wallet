@@ -1,9 +1,9 @@
-import { User } from "~/entities/user/user.entity";
-import { UserEditItem } from "~/models/user/item/user-edit-item.model";
-import { UserEditPasswordEnableData } from "~/models/user/data/user-edit-password-enable-data.model";
-import { UserLoginItem } from "~/models/user/item/user-login-item.model";
-import { userRepository } from "~/repositories/user.repository"
-import { passwordService } from "./password.service";
+import { User } from "~/entities/user/user";
+import { UserEditItem } from "~/models/user/item/user-edit-item";
+import { UserEditPasswordEnableData } from "~/models/user/data/user-edit-password-enable-data";
+import { UserLoginItem } from "~/models/user/item/user-login-item";
+import { userRepository } from "~/repositories/user-repository"
+import { passwordService } from "./password-service";
 
 export class UserService {
     async getAllUserLoginItems(): Promise<UserLoginItem[]> {

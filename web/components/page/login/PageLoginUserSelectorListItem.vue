@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UserLoginItem } from '~/models/user/item/user-login-item.model';
+import { UserLoginItem } from '~/models/user/item/user-login-item';
 
 interface Props {
     item: UserLoginItem;

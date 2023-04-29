@@ -1,6 +1,6 @@
-import { Color } from "../color/color.enum";
-import { Icon } from "../icon/icon.enum";
-import { CategoryType } from "./category-type.enum";
+import { Color } from "../color/color";
+import { Icon } from "../icon/icon";
+import { CategoryType } from "./category-type";
 
 export class Category {
     id?: number;

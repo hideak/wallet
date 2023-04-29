@@ -1,5 +1,5 @@
-import { User } from "~/entities/user/user.entity";
-import { BaseRepository } from "./base/base.repository";
+import { User } from "~/entities/user/user";
+import { BaseRepository } from "./base/base-repository";
 import { walletDatabase } from "~/database/wallet-database";
 
 export class UserRepository extends BaseRepository<User, number> {

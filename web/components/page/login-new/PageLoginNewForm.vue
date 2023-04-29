@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BaseForm from '~/components/base/form/BaseForm.vue';
 import { User } from '~/entities/user/user.entity';
-import { UserNewData } from '~/models/user/user-new-data.model';
+import { UserNewData } from '~/models/user/data/user-new-data.model';
 import { passwordService } from '~/services/password.service';
 import { userService } from '~/services/user.service';
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UserEditItem } from '~/models/user/user-edit-item.model';
+import { UserEditItem } from '~/models/user/view/user-edit-item.model';
 
 interface Props {
     user?: UserEditItem;

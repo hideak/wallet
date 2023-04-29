@@ -1,4 +1,4 @@
-import { UserNewData } from "~/models/user/user-new-data.model";
+import { UserNewData } from "~/models/user/data/user-new-data.model";
 
 export class User {
     id?: number;

@@ -1,7 +1,7 @@
 import { User } from "~/entities/user/user.entity";
-import { UserEditItem } from "~/models/user/user-edit-item.model";
-import { UserEditPasswordEnableData } from "~/models/user/user-edit-password-enable-data.model";
-import { UserLoginItem } from "~/models/user/user-login-item.model";
+import { UserEditItem } from "~/models/user/item/user-edit-item.model";
+import { UserEditPasswordEnableData } from "~/models/user/data/user-edit-password-enable-data.model";
+import { UserLoginItem } from "~/models/user/item/user-login-item.model";
 import { userRepository } from "~/repositories/user.repository"
 import { passwordService } from "./password.service";
 

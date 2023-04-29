@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UserEditItem } from '~/models/user/user-edit-item.model';
+import { UserEditItem } from '~/models/user/item/user-edit-item.model';
 import { userService } from '~/services/user.service';
 
 const userEditItems = ref<UserEditItem[]>([]);

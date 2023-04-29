@@ -1,4 +1,5 @@
 import { User } from "~/entities/user/user";
+import { UserEditNameData } from "~/models/user/data/user-edit-name-data";
 import { UserEditPasswordData } from "~/models/user/data/user-edit-password-data";
 import { UserEditPasswordEnableData } from "~/models/user/data/user-edit-password-enable-data";
 import { UserNewData } from "~/models/user/data/user-new-data";
@@ -18,11 +19,18 @@ export class UserService {
         return UserEditItem.fromUsers(users);
     }
 
-    async getUserEditItem(id: number): Promise<UserEditItem | undefined> {
+    async getUserEditItem(id: number): Promise<UserEditItem> {
         const user = await userRepository.get(id);
         if (!user) { throw new Error(`User with id ${id} not found`); }
 
         return UserEditItem.fromUser(user);
+    }
+
+    async getUserEditNameData(id: number): Promise<UserEditNameData> {
+        const user = await userRepository.get(id);
+        if (!user) { throw new Error(`User with id ${id} not found`); }
+
+        return UserEditNameData.fromUser(user);
     }
 
     async createUser(userNewData: UserNewData): Promise<void> {
@@ -32,6 +40,15 @@ export class UserService {
             : null;
 
         const user = User.fromUserNewData(userNewData, hashedPasswordOrNull);
+        await userRepository.upsert(user);
+    }
+
+    async editUserName(id: number, userEditNameData: UserEditNameData): Promise<void> {
+        const user = await userRepository.get(id);
+        if (!user) { throw new Error(`User with id ${id} not found`); }
+        if (!userEditNameData.name) { throw new Error(`The provided user name is not valid`); }
+
+        user.name = userEditNameData.name;
         await userRepository.upsert(user);
     }
 

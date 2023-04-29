@@ -18,9 +18,9 @@ const createUser = async () => {
 <template>
     <BaseForm ref="userNewForm">
         <BaseInput class="mb-3" type="text" upperIcon="person-circle" upperLabel="Nome" required
-            invalidFeedback="Insira um nome válido" v-model="userNewData.name" />
+            invalidFeedback="Insira um nome válido." v-model="userNewData.name" />
         <BaseInput class="mb-3" type="email" upperIcon="envelope" upperLabel="E-mail" required
-            invalidFeedback="Insira um e-mail válido" v-model="userNewData.email" />
+            invalidFeedback="Insira um e-mail válido." v-model="userNewData.email" />
         <BaseSwitch type="text" label="Proteger usuário por senha?" v-model="userNewData.usePassword" />
         <BaseInput v-show="userNewData.usePassword" class="my-3" type="password" upperIcon="key" upperLabel="Senha"
             v-model="userNewData.password" :validationFn="validatePassword"

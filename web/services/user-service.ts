@@ -7,6 +7,7 @@ import { UserEditItem } from "~/models/user/item/user-edit-item";
 import { UserLoginItem } from "~/models/user/item/user-login-item";
 import { userRepository } from "~/repositories/user-repository";
 import { passwordService } from "./password-service";
+import { UserEditEmailData } from "~/models/user/data/user-edit-email-data";
 
 export class UserService {
     async getAllUserLoginItems(): Promise<UserLoginItem[]> {
@@ -31,6 +32,13 @@ export class UserService {
         if (!user) { throw new Error(`User with id ${id} not found`); }
 
         return UserEditNameData.fromUser(user);
+    }
+
+    async getUserEditEmailData(id: number): Promise<UserEditEmailData> {
+        const user = await userRepository.get(id);
+        if (!user) { throw new Error(`User with id ${id} not found`); }
+
+        return UserEditEmailData.fromUser(user);
     }
 
     async createUser(userNewData: UserNewData): Promise<void> {

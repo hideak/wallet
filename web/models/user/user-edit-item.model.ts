@@ -3,10 +3,12 @@ import { User } from "~/entities/user/user.entity";
 export class UserEditItem {
     id?: number;
     name: string;
+    usePassword: boolean;
 
-    private constructor(userListItem: UserEditItem) {
-        this.id = userListItem.id;
-        this.name = userListItem.name;
+    private constructor(userEditItem: UserEditItem) {
+        this.id = userEditItem.id;
+        this.name = userEditItem.name;
+        this.usePassword = userEditItem.usePassword;
     }
 
     static fromUsers(users: User[]): UserEditItem[] {
@@ -17,6 +19,7 @@ export class UserEditItem {
         return new UserEditItem({
             id: user.id,
             name: user.name,
+            usePassword: Boolean(user.password)
         });
     }
 }

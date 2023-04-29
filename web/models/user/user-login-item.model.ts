@@ -5,10 +5,10 @@ export class UserLoginItem {
     name: string;
     email: string;
 
-    private constructor(userListItem: UserLoginItem) {
-        this.id = userListItem.id;
-        this.name = userListItem.name;
-        this.email = userListItem.email;
+    private constructor(userLoginItem: UserLoginItem) {
+        this.id = userLoginItem.id;
+        this.name = userLoginItem.name;
+        this.email = userLoginItem.email;
     }
 
     static fromUsers(users: User[]): UserLoginItem[] {

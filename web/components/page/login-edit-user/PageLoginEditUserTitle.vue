@@ -1,4 +1,17 @@
+<script setup lang="ts">
+import { UserEditItem } from '~/models/user/user-edit-item.model';
+
+interface Props {
+    user?: UserEditItem;
+}
+
+defineProps<Props>();
+</script>
+
 <template>
-    <h2>Willian Hideak</h2>
-    <p>O que você quer editar neste usuário?</p>
+    <div>
+        <h2 v-if="user">{{ user.name }}</h2>
+        <BaseSpinner v-else class="mb-2" />
+        <p>O que você quer editar neste usuário?</p>
+    </div>
 </template>

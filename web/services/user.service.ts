@@ -14,6 +14,13 @@ export class UserService {
         return UserEditItem.fromUsers(users);
     }
 
+    async getUserEditItem(id: number): Promise<UserEditItem | undefined> {
+        const user = await userRepository.get(id);
+        if (!user) { throw new Error(`User with id ${id} not found`); }
+
+        return UserEditItem.fromUser(user);
+    }
+
     async createUser(user: User): Promise<number> {
         return await userRepository.upsert(user);
     }

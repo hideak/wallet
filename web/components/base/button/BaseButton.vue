@@ -3,6 +3,7 @@ interface Props {
     icon?: string;
     label?: string;
     color?: string;
+    disabled?: boolean;
 }
 
 const props = defineProps<Props>();
@@ -12,7 +13,7 @@ const emit = defineEmits(['click']);
 </script>
 
 <template>
-    <button class="btn" :class="buttonColorClass" @click="emit('click')">
+    <button class="btn" :class="buttonColorClass" @click="emit('click')" :disabled="disabled">
         <BaseIconLabel :icon="icon" :label="label" />
     </button>
 </template>

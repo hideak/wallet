@@ -5,14 +5,8 @@ import { userService } from '~/services/user-service';
 
 const route = useRoute();
 const router = useRouter();
-
 const userEditEmailForm = ref<InstanceType<typeof BaseForm> | null>(null);
 const userEditEmailData = ref<UserEditEmailData | null>(null);
-
-onMounted(async () => {
-    const userId = Number(route.params.id);
-    userEditEmailData.value = await userService.getUserEditEmailData(userId);
-});
 </script>
 
 <template>

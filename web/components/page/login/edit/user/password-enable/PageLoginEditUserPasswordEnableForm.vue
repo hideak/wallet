@@ -9,7 +9,7 @@ const userEditPasswordEnableForm = ref<InstanceType<typeof BaseForm> | null>(nul
 const userEditPasswordEnableData = ref(UserEditPasswordEnableData.empty());
 
 const enableUserPassword = async () => {
-    if (!userEditPasswordEnableForm.value?.validate()) { return; };
+    if (!userEditPasswordEnableForm.value?.validate()) { return; }
 
     const userId = Number(route.params.id);
     await userService.enableUserPassword(userId, userEditPasswordEnableData.value);

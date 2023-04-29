@@ -36,15 +36,21 @@ const handleInput = (event: Event): void => {
 
 const validate = (newValidationData: any): void => {
     if (!props.validationFn) { return; }
-    const inputElement = inputRef.value;
     const validationResult = props.validationFn(newValidationData);
 
-    invalidFeedback.value = validationResult;
+    setValidity(validationResult);
+}
+
+const setValidity = (validationResult: string) => {
+    const inputElement = inputRef.value;
     inputElement?.setCustomValidity(validationResult);
+    invalidFeedback.value = validationResult;
 }
 
 onMounted(() => validate(props.validationData));
 watch(() => props.validationData, validate);
+
+defineExpose({ setValidity });
 </script>
 
 <template>

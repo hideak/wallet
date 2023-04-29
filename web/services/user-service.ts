@@ -34,11 +34,28 @@ export class UserService {
         await userRepository.upsert(user);
     }
 
+    async validatePassword(id: number, password: string): Promise<boolean> {
+        const user = await userRepository.get(id);
+        if (!user) { throw new Error(`User with id ${id} not found`); }
+        if (!user.password) { throw new Error(`User with id ${id} does not have a password assigned`); }
+
+        const hash = user.password;
+        return await passwordService.compare(password, hash);
+    }
+
+    async disableUserPassword(id: number) {
+        const user = await userRepository.get(id);
+        if (!user) { throw new Error(`User with id ${id} not found`); }
+
+        user.password = null;
+        await userRepository.upsert(user);
+    }
+
     async enableUserPassword(id: number, userEditPasswordEnableData: UserEditPasswordEnableData): Promise<void> {
         const password = userEditPasswordEnableData.password;
         const hashedPassword = await passwordService.hash(password);
-        const user = await userRepository.get(id);
 
+        const user = await userRepository.get(id);
         if (!user) { throw new Error(`User with id ${id} not found`); }
 
         user.password = hashedPassword;

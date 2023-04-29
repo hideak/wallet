@@ -1,11 +1,16 @@
 {
+    "editor.tabSize": 4,
     "git.fetchOnPull": true,
     "material-icon-theme.folders.associations": {
         "entities": "Database",
         "migrations": "Hook",
         "composables": "Functions",
+        "repositories": "Template",
+        "data": "",
         "color": "",
         "icon": "",
-        "home": ""
+        "home": "",
+        "view": "",
+        "email": ""
     }
 }

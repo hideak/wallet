@@ -1,11 +1,14 @@
 import { User } from "~/entities/user/user";
 import { BaseRepository } from "./base/base-repository";
-import { walletDatabase } from "~/database/wallet-database";
+import { WalletDatabase } from "~/database/wallet-database";
 
 export class UserRepository extends BaseRepository<User, number> {
+    static instance: UserRepository;
+    static getRepository(): UserRepository {
+        return this.instance || (this.instance = new UserRepository());
+    }
+
     constructor() {
-        super(walletDatabase.users);
+        super(WalletDatabase.getDatabase().users);
     }
 }
-
-export const userRepository = new UserRepository();

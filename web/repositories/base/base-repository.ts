@@ -1,7 +1,7 @@
 import { Table } from "dexie";
 
 export class BaseRepository<T, TKey> {
-    private table: Table<T, TKey>;
+    protected table: Table<T, TKey>;
 
     protected constructor(table: Table<T, TKey>) {
         this.table = table;

@@ -1,4 +1,4 @@
-import Dexie from 'dexie';
+import { Dexie } from 'dexie';
 import { User } from '~/entities/user/user';
 import { Account } from '~/entities/account/account';
 import { Category } from '~/entities/category/category';
@@ -9,6 +9,11 @@ import { Transfer } from '~/entities/transfer/transfer';
 import { TransactionGroup } from '~/entities/transaction-group/transaction-group';
 
 export class WalletDatabase extends Dexie {
+    static instance: WalletDatabase;
+    static getDatabase(): WalletDatabase {
+        return this.instance || (this.instance = new WalletDatabase());
+    }
+
     users!: Dexie.Table<User, number>;
     accounts!: Dexie.Table<Account, number>;
     categories!: Dexie.Table<Category, number>;
@@ -41,5 +46,3 @@ export class WalletDatabase extends Dexie {
         });
     }
 }
-
-export const walletDatabase = new WalletDatabase();

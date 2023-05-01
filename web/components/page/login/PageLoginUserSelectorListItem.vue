@@ -6,10 +6,11 @@ interface Props {
 }
 
 defineProps<Props>();
+const router = useRouter();
 </script>
 
 <template>
-    <button type="button" class="list-group-item list-group-item-action">
+    <button type="button" class="list-group-item list-group-item-action" @click="router.push(`/login/access/${item.id}`)">
         <div>{{ item.name }}</div>
         <small>{{ item.email }}</small>
     </button>

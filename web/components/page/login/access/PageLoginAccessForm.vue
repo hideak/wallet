@@ -21,7 +21,7 @@ const login = async (): Promise<void> => {
     const isPasswordValid = await userService.validatePassword(userId, password);
 
     if (!isPasswordValid) { setValidity(); return; }
-    // todo: navigate to home page
+    router.push(`/home/${userId}`);
 };
 </script>
 

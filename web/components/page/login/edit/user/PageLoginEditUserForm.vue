@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PageLoginEditUserDeleteModal from '~/components/page/login/edit/user/PageLoginEditUserDeleteModal.vue';
 import { UserEditItem } from '~/models/user/item/user-edit-item';
 
 interface Props {
@@ -6,8 +7,8 @@ interface Props {
 }
 
 defineProps<Props>();
-
 const router = useRouter();
+const userDeleteModal = ref<InstanceType<typeof PageLoginEditUserDeleteModal> | null>(null);
 </script>
 
 <template>
@@ -24,7 +25,9 @@ const router = useRouter();
         <BaseButton class="w-100" type="button" color="dark" label="Habilitar senha"
             @click="user && router.push(`/login/edit/${user.id}/password-enable`)" :disabled="!user || user.usePassword" />
         <hr>
-        <BaseButton class="mb-2 w-100" type="button" color="danger" label="Excluir usuário" :disabled="!user" />
+        <BaseButton class="mb-2 w-100" type="button" color="danger" label="Excluir usuário" :disabled="!user"
+            @click="userDeleteModal?.show()" />
         <BaseButton class="w-100" type="button" color="dark" label="Cancelar" @click="router.back()" />
+        <PageLoginEditUserDeleteModal ref="userDeleteModal" :user="user" />
     </BaseForm>
 </template>

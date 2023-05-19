@@ -53,6 +53,10 @@ export class UserService {
         await this.userRepository.upsert(user);
     }
 
+    async deleteUser(id: number): Promise<void> {
+        await this.userRepository.delete(id);
+    }
+
     async editUserName(id: number, userEditNameData: UserEditNameData): Promise<void> {
         const user = await this.userRepository.get(id);
         if (!user) { throw new Error(`User with id ${id} not found`); }

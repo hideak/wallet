@@ -3,6 +3,9 @@ interface Props {
     icon?: string;
     label?: string;
     color?: string;
+    dataBsToggle?: string;
+    dataBsTarget?: string;
+    dataBsDismiss?: string;
     disabled?: boolean;
 }
 
@@ -13,7 +16,8 @@ const emit = defineEmits(['click']);
 </script>
 
 <template>
-    <button class="btn" :class="buttonColorClass" @click="emit('click')" :disabled="disabled">
+    <button type="button" class="btn" :class="buttonColorClass" :disabled="disabled" @click="emit('click')"
+        :data-bs-toggle="dataBsToggle" :data-bs-target="dataBsTarget" :data-bs-dismiss="dataBsDismiss">
         <BaseIconLabel :icon="icon" :label="label" />
     </button>
 </template>
